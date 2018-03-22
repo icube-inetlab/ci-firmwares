@@ -25,4 +25,4 @@ ARCHIS += arduino-zero
 PREFIX_arduino-zero = arduino_zero
 
 
-include Makefile.in
+include ../Makefile.in
