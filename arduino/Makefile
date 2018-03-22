@@ -22,16 +22,16 @@ clean: clean_zigduino_autotest clean_zigduino_idle
 
 # Build Zigduino
 build_zigduino_autotest:
-	make -C firmwares/zigduino_autotest
-	cp firmwares/zigduino_autotest/build-zigduino_r2/zigduino_autotest.elf .
+	make -C firmwares/autotest
+	cp firmwares/autotest/build-zigduino_r2/autotest.elf zigduino_autotest.elf
 
 build_zigduino_idle:
-	make -C firmwares/zigduino_idle
-	cp firmwares/zigduino_idle/build-zigduino_r2/zigduino_idle.elf .
+	make -C firmwares/idle
+	cp firmwares/idle/build-zigduino_r2/idle.elf zigduino_idle.elf
 
 # Clean Zigduino
 clean_zigduino_autotest:
-	make -C firmwares/zigduino_autotest clean
+	make -C firmwares/autotest clean
 
 clean_zigduino_idle:
-	make -C firmwares/zigduino_idle clean
+	make -C firmwares/idle clean
