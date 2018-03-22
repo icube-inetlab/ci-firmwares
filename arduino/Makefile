@@ -5,10 +5,9 @@
 #  * PREFIX_$(target) variable with the firmware name prefix
 #
 
-OS=arduino
 
-ARCHIS = zigduino_r2
-PREFIX_zigduino_r2 = zigduino
+ARCHIS += zigduino_r2
+PREFIX_zigduino_r2 += zigduino
 
 
 include ../Makefile.in
