@@ -1,9 +1,9 @@
-# Prerequisite
-all: init_submodules
-
-.PHONY: init_submodules
-init_submodules:
-	git submodule update --init --recursive
+# Define all target architectures
+#
+# For each target define:
+#
+#  * PREFIX_$(target) variable with the firmware name prefix
+#
 
 install-arduino-ide:
 	if [ ! -f arduino-1.8.5-linux64.tar.xz ]; then\
@@ -11,27 +11,14 @@ install-arduino-ide:
 		fi; \
 	if [ ! -d arduino-1.8.5 ]; then tar xf arduino-1.8.5-linux64.tar.xz; fi;
 
-# Meta targets
-all: build
 
-build: build_zigduino_autotest build_zigduino_idle
+ARCHIS += zigduino_r2
+PREFIX_zigduino_r2 += zigduino
 
-clean: clean_zigduino_autotest clean_zigduino_idle
-	rm -f *_autotest.elf
-	rm -f *_idle.elf
+ARCHIS += mega~atmega2560
+PREFIX_mega~atmega2560 += mega2560
 
-# Build Zigduino
-build_zigduino_autotest:
-	make -C firmwares/zigduino_autotest
-	cp firmwares/zigduino_autotest/build-zigduino_r2/zigduino_autotest.elf .
+ARCHIS += uno
+PREFIX_uno += uno
 
-build_zigduino_idle:
-	make -C firmwares/zigduino_idle
-	cp firmwares/zigduino_idle/build-zigduino_r2/zigduino_idle.elf .
-
-# Clean Zigduino
-clean_zigduino_autotest:
-	make -C firmwares/zigduino_autotest clean
-
-clean_zigduino_idle:
-	make -C firmwares/zigduino_idle clean
+include ../Makefile.in

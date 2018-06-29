@@ -1,12 +1,3 @@
-# Prerequisite
-
-all: init_submodules
-
-.PHONY: init_submodules
-init_submodules:
-	git submodule update --init --recursive
-
-
 # All targets
 
 AUTOTESTS = $(foreach archi, $(ARCHIS), $(PREFIX_$(archi))_autotest.elf)
@@ -19,7 +10,7 @@ all: $(AUTOTESTS) $(IDLES)
 # Generate rules to copy firmwares to root
 define copy
 $(1): $(2)
-	cp $$^ $$@
+	cp $$^ ../$$@
 endef
 
 $(foreach archi, $(ARCHIS), \
@@ -28,13 +19,13 @@ $(foreach archi, $(ARCHIS), \
 
 $(foreach archi, $(ARCHIS), \
 	$(eval $(call copy, $(PREFIX_$(archi))_idle.elf, \
-	firmwares/idle/bin/$(archi)/riot-idle.elf)))
+	firmwares/idle/bin/$(archi)/idle.elf)))
 
 
 # Build firmwares
 firmwares/autotest/bin/%/autotest.elf:
 	make -C firmwares/autotest/ BOARD=$*
-firmwares/idle/bin/%/riot-idle.elf:
+firmwares/idle/bin/%/idle.elf:
 	make -C firmwares/idle/ BOARD=$*
 
 

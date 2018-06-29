@@ -1,5 +1,5 @@
 # name of your application
-APPLICATION = riot-idle
+APPLICATION = idle
 
 # If no BOARD is found in the environment, use this default:
 BOARD ?= samr21-xpro
