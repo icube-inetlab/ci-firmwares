@@ -12,5 +12,7 @@ PREFIX_zigduino_r2 += zigduino
 ARCHIS += mega!atmega2560
 PREFIX_mega!atmega2560 += mega2560
 
+ARCHIS += uno
+PREFIX_uno += uno
 
 include ../Makefile.in
