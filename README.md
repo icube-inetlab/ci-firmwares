@@ -8,3 +8,6 @@ based on two OSes :
 
 * **RIOT**, see [riot/README.md]
 * **Arduino**, see [arduino/README.md]
+
+For Arduino, you might need to install the Arduino IDE into your
+system, you can use `make install-arduino-ide`
