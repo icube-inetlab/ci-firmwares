@@ -3,9 +3,9 @@ ARDUINOBASE = $(CURDIR)/../../../arduino
 
 ARDUINO_DIR = $(ARDUINOBASE)/arduino-1.8.5
 
-# gets the TAG and SUB from the BOARD variable (split on !)
-BOARD_TAG = $(word 1,$(subst !, ,$(BOARD)))
-BOARD_SUB = $(word 2,$(subst !, ,$(BOARD)))
+# gets the TAG and SUB from the BOARD variable (split on ~)
+BOARD_TAG = $(word 1,$(subst ~, ,$(BOARD)))
+BOARD_SUB = $(word 2,$(subst ~, ,$(BOARD)))
 # gets the alternate core path from the boards folder (only zigduino needed inhere for now)
 ALTERNATE_CORE_PATH += $(ARDUINOBASE)/boards/$(BOARD_TAG)
 # if the alternate core path does not exist, default back to the standard folder

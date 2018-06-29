@@ -10,4 +10,4 @@ based on two OSes :
 * **Arduino**, see [arduino/README.md]
 
 For Arduino, you might need to install the Arduino IDE into your
-system, you can use `make install-arduino-ide`
+system, you can use `make -C arduino install-arduino-ide`
